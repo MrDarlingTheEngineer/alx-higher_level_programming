@@ -1,13 +1,6 @@
 #!/usr/bin/node
-/**
-* Script prints the title of Star Wars movie*/
-
-const req = require('request');
-
-const url = 'https://swapi-api.alx-tools.com/api/films/' + process.argv[2];
-req(url, function (error, response, body) {
-  if (error) console.log(error);
-  else if (response.statusCode === 200) {
-    console.log(JSON.parse(body).title);
-  }
+const request = require('request');
+const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
+request(url, function (error, response, body) {
+  console.log(error || JSON.parse(body).title);
 });
