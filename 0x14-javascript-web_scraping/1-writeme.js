@@ -1,5 +1,18 @@
 #!/usr/bin/node
+
+/**
+* Script writes as string to file
+* first argument is file path
+* second is string to write to
+* if error print error
+*/
+
 const fs = require('fs');
-fs.writeFile(process.argv[2], process.argv[3], error => {
-  if (error) console.log(error);
-});
+
+const filePath = process.argv[2];
+
+try {
+  fs.writeFileSync(filePath, process.argv[3], 'utf-8');
+} catch (err) {
+  console.log({ ...err });
+}
